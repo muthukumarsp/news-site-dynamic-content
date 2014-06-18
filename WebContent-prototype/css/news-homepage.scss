@@ -1,0 +1,110 @@
+
+$content-box-width : 70%;
+$content-heading-width : 90%;
+$box-content-news-width : $content-heading-width;
+$box-overflow : hidden;
+$basefont:16;
+$baseh1:30;
+$contentTextSize:14;
+$basefont_h4 :20;
+$box-content-news-border-size:2;
+$box-content-most-popular-news-margin-left:40;
+$box-content-most-popular-news-margin-top:8;
+
+/* function to calculate the font-size property */
+@function em($target, $context: $basefont) {
+	@return ($target / $context) * 1em;
+}
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 100%;
+}
+.content {
+	width: $content-box-width;
+	overflow: $box-overflow;
+	position: relative;
+	margin: 0% 15%;
+ 	max-width: 100%;
+	font-size: em($contentTextSize);  
+	 
+}
+
+ 
+
+.content-heading h5  {
+ 	background-image: url("../images/mock-heading.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	-webkit-background-origin: border;
+	width: $content-heading-width;
+	max-width: 100%;
+	color: white;
+	padding: em(16) 0em 0em em(2);
+	margin-top: 2%;
+	margin-bottom: .6%;
+ 
+}
+.box-content-news {
+	width: $box-content-news-width;
+	max-width: 100%;
+	float: left;
+	border: solid silver em($box-content-news-border-size);
+}
+
+.box-content-most-popular-news, .box-content-most-popular-blog  {
+	width: 49%;
+	margin: 0%;
+	float: left;
+	overflow: $box-overflow ;
+	margin-left: 1%;
+	margin-top: 1%;
+	 h4{ 
+	font-weight: bold;
+	margin-top: 1%;
+	margin-left:em($basefont_h4);
+}
+ol{
+	list-style: decimal;
+	margin-left: em($box-content-most-popular-news-margin-left);  
+	margin-top:  em($box-content-most-popular-news-margin-top);  
+	margin-bottom : 1em;
+	li{
+	text-overflow: clip;
+	margin-top: 1%;
+	a{
+	text-decoration: none;
+}
+}
+}
+}
+
+.box-content-most-popular-blog {
+	float: right;
+}
+
+.nav-link-more {
+	float: right;
+	margin-right: (100% - $box-content-news-width ); /* This calculation is  to float the "More >>" link below the news& blog content */
+	a{
+	color:blue;
+	text-decoration: none;
+	span{
+	color: red;
+	}
+	}
+}
+
+ .content-short-news{
+	margin-top : 2%;
+	width : 35%  ;
+}
+.box-content-most-popular-news-short{
+	width :100%;
+}
+@media screen and (max-width: 768px) {
+	.box-content-most-popular-news,.box-content-most-popular-blog {
+		clear: both;
+		width: 100%;
+	}
+}
